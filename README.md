@@ -20,4 +20,4 @@ It's ok if you don't make it in time. We want to get a general idea on _how_ you
 
 ---
 
-Here's additional test data if you need it:
+Here's additional test data if you need it: [testdata.json](https://github.com/lmller/codingchallenge/blob/main/testdata.json)
