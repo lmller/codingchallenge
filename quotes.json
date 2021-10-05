@@ -1,18 +1,18 @@
 [
   {
-    "name": "Jeff Winger",
+    "id": 1,
     "quote": "What makes humans different from other animals? We're the only species on earth that observes Shark Week. Sharks don't even observe Shark Week, but we do."
   },
   {
-    "name": "Annie Edison",
+    "id": 2,
     "quote": "When you conspire with everyone you come across, you're not really conspiring with anyone. You're just doing random crap."
   },
   {
-    "name": "Abed Nadir",
+    "id": 3,
     "quote": "Just so you know Jeff, you are now creating six different timelines."
   },
   {
-    "name": "Dean Pelton",
+    "id": 4,
     "quote": "From now on, April 1st is now March 32nd."
   }
 ]
