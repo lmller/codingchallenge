@@ -2,7 +2,7 @@
 
 Write a web API that returns quotes in JSON format.
 ```
-GET /quotes/<id>
+GET /quotes/{name}
 GET /quotes/random
 POST /quotes
 ```
