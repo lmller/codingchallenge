@@ -15,7 +15,7 @@ The result of the GET requests should look like this.
 ```
 
 
-## Option 2: Fetch and merge two json files and display their content
+## Option 2: Fetch and merge two JSON files and display their content
 Display the contents of the following "APIs" in a web app: 
 - https://raw.githubusercontent.com/lmller/codingchallenge/main/people.json
 - https://raw.githubusercontent.com/lmller/codingchallenge/main/quotes.json
