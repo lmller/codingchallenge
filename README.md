@@ -1,6 +1,6 @@
 # coding challenge
 
-Write a web API that returns quotes in JSON format.
+## Option 1: Write a web API that returns quotes in JSON format.
 ```
 GET /quotes
 GET /quotes/random
@@ -14,9 +14,18 @@ The result of the GET requests should look like this.
 }
 ```
 
+
+## Option 2: Fetch and merge two json files and display their content
+Display the contents of the following "APIs" in a web app: 
+- https://raw.githubusercontent.com/lmller/codingchallenge/main/people.json
+- https://raw.githubusercontent.com/lmller/codingchallenge/main/quotes.json
+
+Use the following format: <Name>: "<Quote>"
+
+Each entry has an ID, you can determine wich quote belongs to whom by checking that ID.
+
+--- 
+
 You can use your favourite tools.
 
 It's ok if you don't make it in time. We want to get a general idea on _how_ you work and approach problems.
-
-If you don't feel confident enough with backend, you can also write a web page that uses this api.
-
