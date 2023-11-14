@@ -20,7 +20,7 @@ Display the contents of the following "APIs" in a web app:
 - https://raw.githubusercontent.com/lmller/codingchallenge/main/people.json
 - https://raw.githubusercontent.com/lmller/codingchallenge/main/quotes.json
 
-Use the following format: <Name>: "<Quote>"
+Use the following format: `<Name>: "<Quote>"`
 
 Each entry has an ID, you can determine wich quote belongs to whom by checking that ID.
 
