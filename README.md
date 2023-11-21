@@ -24,6 +24,8 @@ Use the following format: `<Name>: "<Quote>"`
 
 Each entry has an ID, you can determine wich quote belongs to whom by checking that ID.
 
+You can find template react projects in the `/javascript` and `/typescript` folders respectively.
+
 --- 
 
 You can use your favourite tools.
