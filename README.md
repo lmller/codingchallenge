@@ -8,8 +8,8 @@ Create a web application using **Spring Boot** that allows the creation and fetc
 
 - A quote consists of an author (the person who said it) and the quote itself. 
 - I can create a quote using a REST Api
-- I can get all quoutes via the REST Api
-- I can get a filtered list of quoute containing all quotes from a specific author
+- I can get all quotes via the REST Api
+- I can get a filtered list of quote containing all quotes from a specific author
 - The API is secured using Basic Authentication
 - There are two users: One, who is only allowed to read quotes and another one who can also create them. 
 
