@@ -18,7 +18,7 @@ Create a web application using **Spring Boot** that allows the creation and fetc
 - Created quotes should be persisted to a relational database, but don't have to survive a restart of the server. 
 - Please provide sample requests, ideally in the [IntelliJ Http Format](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#composing-http-requests)
 - REST API with JSON
-- 
+- Create a readme with instructions to start the server locally
 
 ### Questions and Help
 
