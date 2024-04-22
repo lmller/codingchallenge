@@ -28,4 +28,4 @@ In case you want some test data, there's a [quotes.txt](/quotes.txt) with some q
 ### Before you submit
 
 - Make sure everything works :-)
-- Think: Does the code meet the quality requirements of my usual work? Would I create a Pull Request like this? 
+- Think: _"Does the code meet the quality requirements of my usual work? Would I create a Pull Request like this?"_ 
