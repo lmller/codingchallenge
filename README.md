@@ -21,4 +21,4 @@ Create a web application using **Spring Boot** that allows the creation and fetc
 ### Questions and Help
 
 If you have any questions, feel free to reach out to us. 
-In case you want some test data, there's a (quotes.txt)[/quotes.txt] with some quotes. 
+In case you want some test data, there's a [quotes.txt](/quotes.txt) with some quotes. 
