@@ -1,33 +1,24 @@
 # coding challenge
 
-## Option 1: Write a web API that returns quotes in JSON format.
-```
-GET /quotes
-GET /quotes/random
-POST /quotes
-```
-The result of the GET requests should look like this.
-```json
-{
-  "name": "Dean Pelton",
-  "quote": "From now on, April 1st is now March 32nd."
-}
-```
+## Write a web API that for quotes
 
+Create a web application using **Spring Boot** that allows the creation and fetching of quotes.
 
-## Option 2: Fetch and merge two JSON files and display their content
-Display the contents of the following "APIs" in a web app: 
-- https://raw.githubusercontent.com/lmller/codingchallenge/main/people.json
-- https://raw.githubusercontent.com/lmller/codingchallenge/main/quotes.json
+### Acceptence Criteria
 
-Use the following format: `<Name>: "<Quote>"`
+- A quote consists of an author (the person who said it) and the quote itself. 
+- I can create a quote using a REST Api
+- I can get all quoutes via the REST Api
+- I can get a filtered list of quoute containing all quotes from a specific author
+- The API is secured using Basic Authentication
+- There are two users: One, who is only allowed to read quotes and another one who can also create them. 
 
-Each entry has an ID, you can determine wich quote belongs to whom by checking that ID.
+### Other Requirements
 
-You can find template react projects in the `/javascript` and `/typescript` folders respectively.
+- Created quotes should be persisted to a relational database, but don't have to survive a restart of the server. 
+- Please provide sample requests, ideally in the [IntelliJ Http Format](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html#composing-http-requests)
 
---- 
+### Questions and Help
 
-You can use your favourite tools.
-
-It's ok if you don't make it in time. We want to get a general idea on _how_ you work and approach problems.
+If you have any questions, feel free to reach out to us. 
+In case you want some test data, there's a (quotes.txt)[/quotes.txt] with some quotes. 
