@@ -1,6 +1,6 @@
 # coding challenge
 
-## Write a web API that for quotes
+## Write a web API for quotes
 
 Create a web application using **Spring Boot** that allows the creation and fetching of quotes.
 
