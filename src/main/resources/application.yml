@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Coding Challenge Circus
+server:
+  port: 8090
