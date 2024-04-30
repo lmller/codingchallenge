@@ -11,4 +11,6 @@ public interface QuotesEntityRepository extends JpaRepository<QuotesEntity, Long
 
   List<QuotesEntity> findAllByAuthor(String author);
 
+  boolean existsByAuthorAndQuote(String author, String quote);
+
 }
