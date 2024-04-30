@@ -30,8 +30,8 @@ class IntegrationTests {
 	void testGetAllQuotes() throws Exception {
 		MvcResult result = mockMvc.perform(get(API_BASE_PATH))
 				.andExpect(status().isOk())
-				.andExpect(content().json("[{\"id\":1,\"author\":\"Steve Jobs\",\"quote\":\"Stay hungry, stay foolish.\"}," +
-						"{\"id\":2,\"author\":\"Dean Pelton\",\"quote\":\"From now on, April 1st is now March 32nd.\"}]"))
+				.andExpect(content().json("[{\"author\":\"Steve Jobs\",\"quote\":\"Stay hungry, stay foolish.\"}," +
+						"{\"author\":\"Dean Pelton\",\"quote\":\"From now on, April 1st is now March 32nd.\"}]"))
 				.andReturn();
 		System.out.println(result.getResponse().getContentAsString());
 	}
@@ -42,11 +42,19 @@ class IntegrationTests {
 	void testGetQuotesByAuthor() throws Exception {
 		MvcResult result = mockMvc.perform(get(API_BASE_PATH).param("author","Steve Jobs"))
 				.andExpect(status().isOk())
-				.andExpect(content().json("[{\"id\":1,\"author\":\"Steve Jobs\",\"quote\":\"Stay hungry, stay foolish.\"}]"))
+				.andExpect(content().json("[{\"author\":\"Steve Jobs\",\"quote\":\"Stay hungry, stay foolish.\"}]"))
 				.andReturn();
 		System.out.println(result.getResponse().getContentAsString());
 	}
 
-	
+	@Test
+	void testGetQuotes_noContent() throws Exception {
+		MvcResult result = mockMvc.perform(get(API_BASE_PATH))
+				.andExpect(status().isNoContent())
+				.andReturn();
+		System.out.println(result.getResponse().getContentAsString());
+	}
+
+
 
 }

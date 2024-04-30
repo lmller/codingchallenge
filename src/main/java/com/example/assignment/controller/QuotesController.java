@@ -2,6 +2,8 @@ package com.example.assignment.controller;
 
 import com.example.assignment.model.QuotesDto;
 import com.example.assignment.service.QuotesService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +23,18 @@ public class QuotesController {
   }
 
   @GetMapping
-  public List<QuotesDto> getQuotes(@RequestParam(required = false) String author) {
+  public ResponseEntity<List<QuotesDto>> getQuotes(@RequestParam(required = false) String author) {
+    List<QuotesDto> quotes = null;
+    // If author param not provided, return all quotes
     if (StringUtils.hasText(author))
-      return quotesService.getQuotesByAuthor(author);
+      quotes = quotesService.getQuotesByAuthor(author);
     else
-      return quotesService.getAllQuotes();
+      quotes = quotesService.getAllQuotes();
+
+    if (CollectionUtils.isEmpty(quotes))
+      return ResponseEntity.noContent().build();
+    else
+      return ResponseEntity.ok(quotes);
   }
 
 }
