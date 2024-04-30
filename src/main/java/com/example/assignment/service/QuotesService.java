@@ -26,4 +26,15 @@ public class QuotesService {
         .toList();
   }
 
+  public List<QuotesDto> getQuotesByAuthor(String author) {
+    return quotesEntityRepository.findAllByAuthor(author)
+        .stream()
+        .map(e -> QuotesDto.builder()
+            .id(e.getId())
+            .author(e.getAuthor())
+            .quote(e.getQuote())
+            .build())
+        .toList();
+  }
+
 }

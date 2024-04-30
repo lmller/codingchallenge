@@ -2,8 +2,10 @@ package com.example.assignment.controller;
 
 import com.example.assignment.model.QuotesDto;
 import com.example.assignment.service.QuotesService;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,8 +21,11 @@ public class QuotesController {
   }
 
   @GetMapping
-  public List<QuotesDto> getQuotes() {
-    return quotesService.getAllQuotes();
+  public List<QuotesDto> getQuotes(@RequestParam(required = false) String author) {
+    if (StringUtils.hasText(author))
+      return quotesService.getQuotesByAuthor(author);
+    else
+      return quotesService.getAllQuotes();
   }
 
 }
