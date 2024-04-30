@@ -5,12 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -40,21 +42,24 @@ class IntegrationTests {
 	@Transactional
 	@Sql("classpath:test-data.sql")
 	void testGetQuotesByAuthor() throws Exception {
-		MvcResult result = mockMvc.perform(get(API_BASE_PATH).param("author","Steve Jobs"))
+		mockMvc.perform(get(API_BASE_PATH).param("author","Steve Jobs"))
 				.andExpect(status().isOk())
-				.andExpect(content().json("[{\"author\":\"Steve Jobs\",\"quote\":\"Stay hungry, stay foolish.\"}]"))
-				.andReturn();
-		System.out.println(result.getResponse().getContentAsString());
+				.andExpect(content().json("[{\"author\":\"Steve Jobs\",\"quote\":\"Stay hungry, stay foolish.\"}]"));
 	}
 
 	@Test
 	void testGetQuotes_noContent() throws Exception {
-		MvcResult result = mockMvc.perform(get(API_BASE_PATH))
-				.andExpect(status().isNoContent())
-				.andReturn();
-		System.out.println(result.getResponse().getContentAsString());
+		mockMvc.perform(get(API_BASE_PATH))
+				.andExpect(status().isNoContent());
 	}
 
-
+	@Test
+	@Transactional
+	void testCreateQuote() throws Exception {
+		mockMvc.perform(post(API_BASE_PATH)
+						.contentType(MediaType.APPLICATION_JSON)
+						.content("{\"author\": \"Abed Nadir\",\"quote\": \"Six seasons and a movie!\"}"))
+				.andExpect(status().isCreated());
+	}
 
 }

@@ -1,5 +1,6 @@
 package com.example.assignment.service;
 
+import com.example.assignment.dal.model.QuotesEntity;
 import com.example.assignment.dal.repository.QuotesEntityRepository;
 import com.example.assignment.model.QuotesDto;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,13 @@ public class QuotesService {
             .quote(e.getQuote())
             .build())
         .toList();
+  }
+
+  public void createQuote(QuotesDto quote) {
+    quotesEntityRepository.save(QuotesEntity.builder()
+        .author(quote.getAuthor())
+        .quote(quote.getQuote())
+        .build());
   }
 
 }
