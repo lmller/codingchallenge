@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class QuotesDto {
 
-  private long id;
+  private Long id;
 
   @NotBlank
   private String author;

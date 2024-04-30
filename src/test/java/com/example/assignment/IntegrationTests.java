@@ -29,7 +29,7 @@ class IntegrationTests {
 	@Test
 	@Transactional
 	@Sql("classpath:test-data.sql")
-	void testGetAllQuotes() throws Exception {
+	void testGetAllQuotes_ok() throws Exception {
 		MvcResult result = mockMvc.perform(get(API_BASE_PATH))
 				.andExpect(status().isOk())
 				.andExpect(content().json("[{\"author\":\"Steve Jobs\",\"quote\":\"Stay hungry, stay foolish.\"}," +
@@ -41,25 +41,43 @@ class IntegrationTests {
 	@Test
 	@Transactional
 	@Sql("classpath:test-data.sql")
-	void testGetQuotesByAuthor() throws Exception {
+	void testGetQuotesByAuthor_ok() throws Exception {
 		mockMvc.perform(get(API_BASE_PATH).param("author","Steve Jobs"))
 				.andExpect(status().isOk())
 				.andExpect(content().json("[{\"author\":\"Steve Jobs\",\"quote\":\"Stay hungry, stay foolish.\"}]"));
 	}
 
 	@Test
-	void testGetQuotes_noContent() throws Exception {
+	void testGetAllQuotes_noContent() throws Exception {
 		mockMvc.perform(get(API_BASE_PATH))
 				.andExpect(status().isNoContent());
 	}
 
 	@Test
 	@Transactional
-	void testCreateQuote() throws Exception {
+	@Sql("classpath:test-data.sql")
+	void testGetQuotesByAuthor_noContent() throws Exception {
+		mockMvc.perform(get(API_BASE_PATH).param("author","Steve"))
+				.andExpect(status().isNoContent());
+	}
+
+	@Test
+	@Transactional
+	void testCreateQuote_created() throws Exception {
 		mockMvc.perform(post(API_BASE_PATH)
 						.contentType(MediaType.APPLICATION_JSON)
 						.content("{\"author\": \"Abed Nadir\",\"quote\": \"Six seasons and a movie!\"}"))
 				.andExpect(status().isCreated());
+	}
+
+	@Test
+	@Transactional
+	@Sql("classpath:test-data.sql")
+	void testCreateDuplicateQuote_conflict() throws Exception {
+		mockMvc.perform(post(API_BASE_PATH)
+						.contentType(MediaType.APPLICATION_JSON)
+						.content("{\"author\": \"Steve Jobs\",\"quote\": \"Stay hungry, stay foolish.\"}"))
+				.andExpect(status().isConflict());
 	}
 
 }

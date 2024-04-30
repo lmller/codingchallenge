@@ -5,6 +5,7 @@ import com.example.assignment.dal.repository.QuotesEntityRepository;
 import com.example.assignment.exception.DuplicateEntryException;
 import com.example.assignment.model.QuotesDto;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -17,26 +18,32 @@ public class QuotesService {
     this.quotesEntityRepository = quotesEntityRepository;
   }
 
-  public List<QuotesDto> getAllQuotes() {
-    return quotesEntityRepository.findAll()
-        .stream()
-        .map(e -> QuotesDto.builder()
-            .id(e.getId())
-            .author(e.getAuthor())
-            .quote(e.getQuote())
-            .build())
-        .toList();
-  }
-
-  public List<QuotesDto> getQuotesByAuthor(String author) {
-    return quotesEntityRepository.findAllByAuthor(author)
-        .stream()
-        .map(e -> QuotesDto.builder()
-            .id(e.getId())
-            .author(e.getAuthor())
-            .quote(e.getQuote())
-            .build())
-        .toList();
+  /**
+   * Get all quotes filtered by author if provided
+   * @param author (Optional) Name of Author to filter
+   * @return List of {@link QuotesDto}
+   */
+  public List<QuotesDto> getQuotes(String author) {
+    // If author param not provided, return all quotes
+    if (StringUtils.hasText(author)) {
+      return quotesEntityRepository.findAllByAuthor(author)
+          .stream()
+          .map(e -> QuotesDto.builder()
+              .id(e.getId())
+              .author(e.getAuthor())
+              .quote(e.getQuote())
+              .build())
+          .toList();
+    } else {
+      return quotesEntityRepository.findAll()
+          .stream()
+          .map(e -> QuotesDto.builder()
+              .id(e.getId())
+              .author(e.getAuthor())
+              .quote(e.getQuote())
+              .build())
+          .toList();
+    }
   }
 
   public void createQuote(QuotesDto quote) {
