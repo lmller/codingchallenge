@@ -2,6 +2,7 @@ package com.example.assignment.controller;
 
 import com.example.assignment.model.QuotesDto;
 import com.example.assignment.service.QuotesService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
@@ -37,7 +38,7 @@ public class QuotesController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public void createQuote(@RequestBody QuotesDto quote) {
+  public void createQuote(@Valid @RequestBody QuotesDto quote) {
     quotesService.createQuote(quote);
   }
 
