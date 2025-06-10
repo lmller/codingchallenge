@@ -2,7 +2,7 @@
 
 ## Write a web API for quotes
 
-Create a web application using **Spring Boot** that allows the creation and fetching of quotes.
+Create a web application using either **Spring Boot** or **Go** (we use [echo](https://github.com/labstack/echo)) that allows the creation and fetching of quotes.
 
 ### Acceptence Criteria
 
@@ -12,7 +12,7 @@ Create a web application using **Spring Boot** that allows the creation and fetc
 - I can get a paginated filtered list of quote containing all quotes from a specific author
 - The API is secured using Basic Authentication
 - There are two users: One who is only allowed to read quotes and another one who can also create them.
-- The username of the user who created the quote needs to be stored alongside that quote. 
+- The username of the user who created the quote needs to be stored alongside that quote.
 
 ### Other Requirements
 
