@@ -2,7 +2,7 @@
 
 ## Write a web API for quotes
 
-Create a web application using either **Spring Boot** or **Go** (we use [echo](https://github.com/labstack/echo)) that allows the creation and fetching of quotes.
+Create a web application using either **Spring Boot** _or_ **Go** (we use [echo](https://github.com/labstack/echo)) that allows the creation and fetching of quotes.
 
 ### Acceptence Criteria
 
