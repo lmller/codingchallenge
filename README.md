@@ -22,6 +22,7 @@ Create a web application using either **Spring Boot** _or_ **Go** (we use [echo]
 - Create a readme with instructions to start the server locally.
 - Make your solution available on GitHub in a **private** repository.
 - Invite [@lmller](https://github.com/lmller) and [@mschwarzcircus](https://github.com/mschwarzcircus) to the repository and let us know via email that you completed the challenge.
+- If your code is written in *Go*, additionally invite [@abrzn](https://github.com/abrzn)
 
 ### Questions and Help
 
